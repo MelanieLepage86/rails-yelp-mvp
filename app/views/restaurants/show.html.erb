@@ -4,4 +4,11 @@
 <p><%= @restaurant.phone_number %></p>
 <p><%= @restaurant.category %></p>
 <br>
+<p><strong>Check our customer reviews </strong></p>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.rating %> - <%= review.content %></li>
+  <% end %>
+<br>
+<%= link_to "Add a review", new_restaurant_review_path(@restaurant) %>
+<br>
 <%= link_to "Back to list", restaurants_path %>
